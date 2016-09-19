@@ -2,7 +2,10 @@
 
 ## Overview
 
-This is a list of plugins we could ether try out or are already installed
+This is a list of plugins we could ether try out or are already installed <br>
+There's a list here to explore
+
+  * https://meta.discourse.org/c/plugin/none
 
 ## Plugins to Try out
 

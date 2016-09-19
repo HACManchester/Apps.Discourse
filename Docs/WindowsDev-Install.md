@@ -1,4 +1,4 @@
-# Windows Development
+# Windows Development - Install
 
 ## Overview
 
@@ -68,7 +68,7 @@ At the time of writing using version 1.6.3
 ```
 git clone https://github.com/discourse/discourse.git ~/discourse
 cd discourse
-git checkout v1.6.3
+git checkout v1.7.0.beta4
 ```
 
 ## Setup
@@ -119,6 +119,14 @@ bundle install
 ```
 # Database setup
 bundle exec rake db:migrate db:test:prepare db:seed_fu
+```
+
+### Setting up Admin user
+
+To setup an admin user that we can use to do the initial login
+```
+RAILS_ENV=development
+bundle exec rake admin:create
 ```
 
 ## Starting Discourse
