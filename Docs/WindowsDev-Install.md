@@ -2,7 +2,8 @@
 
 ## Overview
 
-I've put together here a list of steps I've taken in order to hack around with the code for discourse
+I've put together here a list of steps I've taken in order to hack around with the code for discourse under windows
+This is a list of install steps for the setup of a VM under windows
 
 ## Install
 
@@ -55,6 +56,7 @@ Next to install ruby bundler under the root user
 ```
 apt install ruby-bundler
 gem install bundler
+apt-get install ruby-dev
 ```
 
 
@@ -74,7 +76,6 @@ git checkout v1.6.3
 ### Postgresql
 
 Next we need to setup the database
-
 ```
 sudo -u postgres psql postgres
 ```
@@ -113,4 +114,25 @@ CREATE EXTENSION hstore;
 cd ~/discourse
 source ~/.bashrc
 bundle install
+```
+
+```
+# Database setup
+bundle exec rake db:migrate db:test:prepare db:seed_fu
+```
+
+## Starting Discourse
+
+Start the rails server
+```
+bundle exec rails server -b 0.0.0.0
+```
+
+The discourse server should now be accessible on http://localhost:3000 via the vm <br>
+or if port forwarding has been setup in vmware workstation http://192.168.142.128:3000/ <br>
+where 192.168.142.128 is the IP of the VM
+
+You may also have to disable ubuntu's firewall if accessing the vm from the host machine
+```
+sudo ufw disable
 ```
