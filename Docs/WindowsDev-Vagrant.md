@@ -63,7 +63,7 @@ bundle exec rake admin:create
 First we need to start mailcatcher to catch all mails
 ```
 cd ~/
-mailcatcher --verbose --foreground --ip 0.0.0.0
+mailcatcher --ip 0.0.0.0
 ```
 
 Next we need to start discourse in one shell window
@@ -113,23 +113,8 @@ The "app.yml" file often referenced is actually a docker file to define how the 
 In this case this doesn't apply with a development setup.
 "./launcher rebuild app" is actually just a re-creation of the docker image which again doesn't apply
 
-### SMTP Config
-
-The smtp configuration for development is actually stored under
-
-  * config/environments/development.rb
-
-development is specified via the environment variale RAILS_ENV <br>
-to use a value other than localhost, comment out the block of code within config/environment.rb
-that's designed to throw an error if a value other than localhost is used
-
-### Test Login details 
-
-testuser@testdomain.com / test
-testuser2@testdomain.com / test
 
 ### TODO
 
 Can't seem to get MailCatcher to work / recieve mails
 tried swaping the smtp address from localhost to 127.0.0.1 in case it was using the ip6 localhost address
-
